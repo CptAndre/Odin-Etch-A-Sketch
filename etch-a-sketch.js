@@ -1,3 +1,8 @@
-const divCreator = document.createElement("div");
+const container = document.querySelector(".container");
+const size = 16;
 
-document.body.appendChild(divCreator);
+for (let i = 0; i < size * size; i++) {
+  const cell = document.createElement("div");
+  cell.classList.add("grid-block");
+  container.appendChild(cell);
+}
