@@ -3,6 +3,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .container {
@@ -16,8 +18,11 @@ body{
 
 .grid-block {
     box-sizing: border-box;
-    width: calc(100% / 16);
-    height: calc(100% / 16);
     border: 1px solid gray;
     background: white;
+}
+
+#grid-definer , #text-input{
+    width:fit-content;
+    padding: 10px;
 }
