@@ -19,8 +19,13 @@ function createGrid(size) {
 submitButton.addEventListener("click", () => {
   const size = Number.parseInt(sizeInput.value, 10);
 
-  if (Number.isNaN(size) || size < 2 || size > 99) {
-    createGrid(16);
+  if (Number.isNaN(size)) {
+    alert("Please enter a number.");
+    return;
+  }
+
+  if (size < 2 || size > 100) {
+    alert("Please enter a number between 2 and 100.");
     return;
   }
 
