@@ -12,6 +12,9 @@ function createGrid(size) {
     cell.classList.add("grid-block");
     cell.style.width = `${cellSize}%`;
     cell.style.height = `${cellSize}%`;
+    cell.addEventListener("mouseenter", () => {
+    cell.style.backgroundColor = "gray";
+    });
     container.appendChild(cell);
   }
 }
