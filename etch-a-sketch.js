@@ -25,8 +25,22 @@ function createGrid(size) {
     cell.style.width = `${cellSize}%`;
     cell.style.height = `${cellSize}%`;
     cell.addEventListener("mouseenter", () => {
-      const color = randomMode ? getRandomColor() : "gray";
-      cell.style.backgroundColor = color;
+      if (randomMode) {
+        const color = getRandomColor();
+        cell.style.backgroundColor = color;
+        cell.style.opacity = 1;
+        cell.dataset.hoverCount = 0;
+      } else {
+        let hoverCount = parseInt(cell.dataset.hoverCount || 0, 10);
+        if (hoverCount < 10) {
+          hoverCount++;
+          const alpha = hoverCount / 10;
+          cell.style.opacity = 1;
+          cell.style.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
+          cell.style.borderColor = "gray";
+          cell.dataset.hoverCount = hoverCount;
+        }
+      }
     });
     container.appendChild(cell);
   }
