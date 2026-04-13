@@ -22,7 +22,7 @@ body{
     background: white;
 }
 
-#grid-definer , #text-input{
+#grid-definer , #text-input, #randomizer-toggle{
     width:fit-content;
     padding: 10px;
 }

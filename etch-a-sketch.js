@@ -1,6 +1,18 @@
 const container = document.querySelector(".container");
 const sizeInput = document.getElementById("text-input");
 const submitButton = document.getElementById("grid-definer");
+const randomizerButton = document.getElementById("randomizer-toggle");
+
+let randomMode = false;
+
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+}
+
+randomizerButton.addEventListener("click", () => {
+  randomMode = !randomMode;
+  randomizerButton.textContent = randomMode ? "Randomizer ON" : " Randomizer OFF";
+});
 
 function createGrid(size) {
   container.innerHTML = "";
@@ -13,7 +25,8 @@ function createGrid(size) {
     cell.style.width = `${cellSize}%`;
     cell.style.height = `${cellSize}%`;
     cell.addEventListener("mouseenter", () => {
-    cell.style.backgroundColor = "gray";
+      const color = randomMode ? getRandomColor() : "gray";
+      cell.style.backgroundColor = color;
     });
     container.appendChild(cell);
   }
